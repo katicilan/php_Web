@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* HEADER */
+header {
+    background: #222;
+    color: white;
+    padding: 10px;
+}
+
+.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+/* HAMBURGER */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* MENU - IZMIJENJENO: stavke su sada jedna pored druge */
+.menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#menu-toggle:checked + .hamburger + .menu {
+    display: flex;         /* Promijenjeno iz block u flex */
+    flex-direction: row;   /* Stavke idu vodoravno */
+    justify-content: center; /* Centriranje stavki */
+    gap: 20px;            /* Razmak između linkova */
+    flex-wrap: wrap;       /* Ako nema mjesta, prelaze u novi red */
+}
+
+.menu li {
+    margin: 5px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    background: #444;
+}
+
+/* TABLICA */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background: black;
+    color: white;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* LAYOUT - IZMIJENJENO: osigurava raspored Filteri (gore), Tablica (lijevo), Favoriti (desno) */
+.layout {
+    display: flex;
+    flex-direction: column; /* Prisiljava filtere da budu gore */
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Kontejner koji drži tablicu i favorite (dodajemo ovo u HTML ako već nismo) */
+.donji-dio {
+    display: flex;
+    flex-direction: column; /* Na mobitelu jedno ispod drugog */
+    gap: 20px;
+    width: 100%;
+}
+
+/* DESKTOP layout (min-width: 768px) */
+@media (min-width: 768px) {
+    .donji-dio {
+        flex-direction: row; /* Na desktopu jedno pored drugog */
+        align-items: flex-start;
+    }
+
+    .content {
+        flex: 3; /* Tablica zauzima više mjesta */
+        margin: 0;
+    }
+
+    aside {
+        flex: 1; /* Favoriti zauzimaju manje mjesta */
+        margin: 0;
+    }
+}
+
+/* FILTERI BOX */
+#filteri {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* Dodajemo ove stilove da osiguramo ispravan raspored bez obzira na tvoj style.css */
+        .glavni-kontejner {
+            display: flex;
+            flex-direction: column; /* Slaže elemente jedan ispod drugog (Filteri pa ostalo) */
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .donji-dio {
+            display: flex; /* Slaže Tablicu i Favorite jedno pored drugog */
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        #filteri {
+            width: 100%; /* Filteri zauzimaju cijelu širinu na vrhu */
+            background: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .tablica-sekcija {
+            flex: 3; /* Tablica zauzima 75% širine */
+            overflow-x: auto;
+        }
+
+        #favoriti-sekcija {
+            flex: 1; /* Favoriti zauzimaju 25% širine */
+            min-width: 250px;
+            background: #f0f7ff;
+            padding: 15px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            position: sticky;
+            top: 10px;
+        }
+
+/* CONTENT BOX (Tablica sekcija) */
+.content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* FAVORITI (Aside) */
+aside {
+    background: #f0f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    text-align: left;
+}
+
+/* SLIKA UNUTAR ASIDE (ako je imaš) */
+aside img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+aside img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}

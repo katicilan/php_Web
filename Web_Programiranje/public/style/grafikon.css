@@ -1,0 +1,161 @@
+/* HAMBURGER */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* MENU - IZMIJENJENO: stavke su sada jedna pored druge */
+.menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#menu-toggle:checked + .hamburger + .menu {
+    display: flex;         /* Promijenjeno iz block u flex */
+    flex-direction: row;   /* Stavke idu vodoravno */
+    justify-content: center; /* Centriranje stavki */
+    gap: 20px;            /* Razmak između linkova */
+    flex-wrap: wrap;       /* Ako nema mjesta, prelaze u novi red */
+}
+.menu li {
+    margin: 5px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    background: #444;
+}
+
+/* VARIJABLE */
+:root {
+    --drama: #3498db;
+    --komedija: #2ecc71;
+    --akcija: #e74c3c;
+    --ostalo: #f1c40f;
+
+    --velicina: 250px;
+}
+
+/* OPĆI STIL */
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+header, footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+}
+
+/* PIE CHART */
+.pie-chart {
+    width: var(--velicina);
+    height: var(--velicina);
+    border-radius: 50%;
+    margin: 30px auto;
+
+    background: conic-gradient(
+        var(--drama) 0% 40%,
+        var(--komedija) 40% 70%,
+        var(--akcija) 70% 90%,
+        var(--ostalo) 90% 100%
+    );
+
+    /* 🔥 ANIMACIJA */
+    animation: rotateChart 2s ease;
+}
+
+/* animacija */
+@keyframes rotateChart {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* HOVER efekt */
+.pie-chart:hover {
+    transform: scale(1.1);
+}
+
+/* LEGENDA */
+.legenda {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.drama { background: var(--drama); }
+.komedija { background: var(--komedija); }
+.akcija { background: var(--akcija); }
+.ostalo { background: var(--ostalo); }
+
+/* BAR CHART */
+.bar-container {
+    display: none;
+}
+
+.bar {
+    width: 50px;
+    margin: 10px;
+    display: inline-block;
+    background: gray;
+    position: relative;
+}
+
+/* visine */
+.bar.drama { height: 120px; background: var(--drama); }
+.bar.komedija { height: 90px; background: var(--komedija); }
+.bar.akcija { height: 70px; background: var(--akcija); }
+.bar.ostalo { height: 40px; background: var(--ostalo); }
+
+@keyframes grow {
+    from { height: 0; }
+}
+
+/* hover info */
+.bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE */
+/* mobitel → bar chart */
+@media (max-width: 600px) {
+
+    .pie-chart {
+        display: none;
+    }
+
+    .legenda {
+        display: none;
+    }
+
+    .bar-container {
+        display: block;
+    }
+}

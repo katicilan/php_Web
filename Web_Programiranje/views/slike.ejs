@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija slika</title>
+
+    <!-- VAŽNO: putanja ide iz /public -->
+    <link rel="stylesheet" href="/style/style_slike.css">
+</head>
+
+<body>
+
+<header>
+    <nav aria-labelledby="primarna-navigacija">
+        <h2 id="primarna-navigacija" class="hidden">Navigacija</h2>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+        <ul class="menu">
+            <li><a href="/slike">Slike</a></li>
+            <li><a href="/grafikon.html">Grafikon</a></li>
+            <li><a href="/indeks">Indeks</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="galerija">
+    <h1>Galerija slika</h1>
+
+    <div class="img-gallery">
+
+        <% images.forEach((image) => { %>
+
+            <!-- slika -->
+            <figure>
+                <a href="#<%= image.id %>">
+                    <img loading="lazy" src="<%= image.url %>" alt="<%= image.title %>">
+                </a>
+                <figcaption><%= image.title %></figcaption>
+            </figure>
+
+            <!-- lightbox -->
+            <div id="<%= image.id %>" class="lightbox" role="dialog">
+                <a href="#" class="close">✖</a>
+                <img src="<%= image.url %>" alt="<%= image.title %>">
+            </div>
+
+        <% }) %>
+
+    </div>
+</section>
+
+</body>
+</html>

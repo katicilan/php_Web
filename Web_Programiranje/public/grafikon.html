@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafikon filmova</title>
+    <link rel="stylesheet" href="style/grafikon.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Vizualizacija filmova</h1>
+    <nav aria-labelledby="primarna-navigacija">
+        <h2 id="primarna-navigacija" class="hidden">Navigacija</h2>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+        <ul class="menu">
+            <li><a href="/slike">Slike</a></li>
+            <li><a href="Grafikon.html">Grafikon</a></li>
+            <li><a href="indeks">indeks</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="grafikon-container">
+
+    <h2>Žanrovi filmova</h2>
+
+    <div class="pie-chart"></div>
+
+    <div class="legenda">
+        <div><span class="box drama"></span> Drama</div>
+        <div><span class="box komedija"></span> Komedija</div>
+        <div><span class="box akcija"></span> Akcija</div>
+        <div><span class="box ostalo"></span> Ostalo</div>
+    </div>
+
+</section>
+
+<section class="bar-container">
+
+    <h2>Žanrovi (bar chart)</h2>
+
+    <div class="bar drama" data-label="Drama"></div>
+    <div class="bar komedija" data-label="Komedija"></div>
+    <div class="bar akcija" data-label="Akcija"></div>
+    <div class="bar ostalo" data-label="Ostalo"></div>
+
+</section>
+
+<footer>
+    <p>&copy; 2025</p>
+</footer>
+
+</body>
+</html>

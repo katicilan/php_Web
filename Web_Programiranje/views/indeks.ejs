@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtualna Videoteka</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Moja Filmoteka</h1>
+    <nav aria-labelledby="primarna-navigacija">
+        <h2 id="primarna-navigacija" class="hidden">Navigacija</h2>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul class="menu">
+            <li><a href="/slike">Slike</a></li>
+            <li><a href="/grafikon.html">Grafikon</a></li>
+            <li><a href="/indeks">Indeks</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="glavni-kontejner">
+    
+    <section id="filteri">
+        <h3 style="margin-top:0">Filtriranje</h3>
+        <input type="text" id="filter-naslov" placeholder="Pretraži naslov...">
+        <select id="filter-zanr">
+            <option value="">Svi žanrovi</option>
+            <option value="Action">Akcija</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedy">Komedija</option>
+        </select>
+        <label>Min. ocjena: <span id="rating-value">0</span></label>
+        <input type="range" id="filter-rating" min="0" max="10" step="0.1" value="0">
+        <button id="primijeni-filtere">Primijeni filtre</button>
+    </section>
+
+    <div class="donji-dio">
+        
+        <section class="tablica-sekcija">
+            <table id="filmovi-tablica" border="1" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #333; color: white;">
+                        <th>Naslov</th>
+                        <th>Godina</th>
+                        <th>Žanr</th>
+                        <th>Trajanje</th>
+                        <th>Država</th>
+                        <th>Ocjena</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <aside id="favoriti-sekcija">
+            <h2 style="font-size: 1.2rem; margin-top:0;"> Favoriti</h2>
+            <ul id="lista-favorita" style="list-style: none; padding: 0;"></ul>
+            <p id="prazna-poruka">Lista je prazna.</p>
+        </aside>
+
+    </div>
+</main>
+
+<script src="/scripts.js"></script>
+</body>
+</html>
