@@ -1,11 +1,10 @@
 <?php
-// Uključujemo db.php samo da bismo imali pristup sesiji (session_start)
 include 'db.php';
 
-// Brišemo sve varijable sesije
+// Pražnjenje svih sesijskih varijabli
 $_SESSION = array();
 
-// Ako želite potpuno uništiti sesiju, obrišite i session cookie
+// Uništavanje sesijskog kolačića unutar preglednika
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -14,10 +13,9 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Konačno, uništavamo sesiju
+// Konačno uništavanje sesije
 session_destroy();
 
-// Preusmjeravamo korisnika na početnu stranicu
 header("Location: index.php");
 exit;
 ?>

@@ -4,9 +4,9 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $host = 'localhost';
-$db   = 'tvoje_ime_baze'; // PROMIJENI OVO
-$user = 'root';           // PROMIJENI OVO (često 'root')
-$pass = '';               // PROMIJENI OVO (često prazno)
+$db   = 'filmovi';        // Ime baze
+$user = 'root';           // Često 'root' na lokalnom serveru
+$pass = '';               // Često prazno na lokalnom serveru
 
 $conn = new mysqli($host, $user, $pass, $db);
 

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+/* HAMBURGER */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: block;
+}
+
+/* MENU - IZMIJENJENO: stavke su sada jedna pored druge */
+.menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#menu-toggle:checked + .hamburger + .menu {
+    display: flex;         /* Promijenjeno iz block u flex */
+    flex-direction: row;   /* Stavke idu vodoravno */
+    justify-content: center; /* Centriranje stavki */
+    gap: 20px;            /* Razmak između linkova */
+    flex-wrap: wrap;       /* Ako nema mjesta, prelaze u novi red */
+}
+.menu li {
+    margin: 5px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    background: #444;
+}
+
+header, footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+}
+
+/* FONT */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* NASLOV */
+.galerija h1 {
+    text-align: center;
+    color: darkblue;
+}
+
+/* GRID */
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 90%;
+    margin: auto;
+}
+
+/* SLIKE */
+.img-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-gallery img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px white;
+}
+
+/* CLOSE */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .img-gallery {
+        grid-template-columns: 1fr;
+    }
+}
